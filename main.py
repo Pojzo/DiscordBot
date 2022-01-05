@@ -15,4 +15,16 @@ async def on_message(message):
 
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
+
+    if message.content.startswith('$ano?'):
+        await message.channel.send('nieeeeee!')
+
+    if message.content.startswith('o7'):
+        await message.channel.send('o7')
+
+    if message.content.startswith('o/'):
+        await message.channel.send('\o')
+
+    if message.content.startswith('\o'):
+        await message.channel.send('o/')
 client.run(token)
