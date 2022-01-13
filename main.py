@@ -1,6 +1,9 @@
 import discord
 from discord_token import token
 
+images_people = ["gazdik", "pojzo", "marek", "david"]
+images = {"gazdik" : }
+
 client = discord.Client()
 
 @client.event
@@ -11,20 +14,19 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    print(message.content)
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    if not message.startswith("!"):
+        return
+    message = message[1:]
+    split_message = message.split()
+    if len(split_message) == 1:
+        message.channel.send("Zly command brasko")
+        return
 
-    if message.content.startswith('$ano?'):
-        await message.channel.send('nieeeeee!')
+    first, second = split_message
+    if first == "image":
+        if tolower(second) in images_people:
 
-    if message.content.startswith('o7'):
-        await message.channel.send('o7')
 
-    if message.content.startswith('o/'):
-        await message.channel.send('\o')
 
-    if message.content.startswith('\o'):
-        await message.channel.send('o/')
 client.run(token)
